@@ -1,0 +1,22 @@
+{
+  "name": "solidjs-clicklist",
+  "version": "0.5.0",
+  "description": "SolidJS demo: click to select from a list",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomByrer/solidjs-clicklist.git"
+  },
+  "author": "Tom Byrer",
+  "license": "LGPL-3.0",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "solid-js": "1.3.13"
+  },
+  "devDependencies": {
+    "vite": "~2.8.6",
+    "vite-plugin-solid": "^2.2.6"
+  }
+}
