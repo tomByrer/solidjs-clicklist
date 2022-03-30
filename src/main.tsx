@@ -1,5 +1,5 @@
 /*
-ClickListSelector v0.5.0
+ClickListSelector v0.5.1
 @TomByrer 2022, LGPL-3.0
 SolidJS app that takes array of objects with `id` & highlights when clicked on or stepped.
 */
@@ -28,26 +28,29 @@ function App() {
     ],
   });
 
-  const [getCSSID, setCSSID] = createSignal("step1");
-  let curPos = null; // number
-  // let
+  const [getCSSID, setCSSID] = createSignal('');
+
+  let curPos = 0; // _Local's 1st item in arr will be info
   const newPos = (pos = 1 + curPos) => {
     curPos = pos;
     const curTrail = getLocal.trails[curPos];
     setLocal("trails", curPos, "views", curTrail.views + 1);
     setCSSID(curTrail.id);
-    console.log("new posistion:", curTrail);
-    console.log("style:", getCSSID());
   };
 
-const Styles = () => {
-  return (
-    <style>li#{getCSSID() + ` {color:black;background-color:yellow;}`}</style>
-  );
-};
+  const Styles = () => {
+    return (
+      <style>li#{getCSSID() + ` {color:black;background-color:yellow;}`}</style>
+    );
+  };
+
+  const getStepByID = (lookupID = getCSSID()) => {
+    const found = getSteps().find((x) => x.id === lookupID);
+    return found;
+  };
 
   return (
-    <div>
+    <article>
       <p>click on list items</p>
       <Styles />
       <button type="button" onClick={() => newPos()}>
@@ -68,7 +71,8 @@ const Styles = () => {
           }}
         </For>
       </ul>
-    </div>
+      <p>Current: {getStepByID()?.name}</p>
+    </article>
   );
 }
 
