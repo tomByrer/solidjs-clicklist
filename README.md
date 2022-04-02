@@ -5,6 +5,12 @@ click to select from a list
 
 ### History
 
+#### 0.5.2
+
++ highlight itmes that are 'viewed' (steped-through)
+
+[playground](https://playground.solidjs.com/?hash=1326871300&version=1.3.13)
+
 #### 0.5.1
 
 + current chosen display

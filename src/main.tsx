@@ -40,7 +40,8 @@ function App() {
 
   const Styles = () => {
     return (
-      <style>li#{getCSSID() + ` {color:black;background-color:yellow;}`}</style>
+      <style>li#{getCSSID() + ` {color:black;background-color:yellow;}
+li.viewed {background-color:gray}`}</style>
     );
   };
 
@@ -64,7 +65,11 @@ function App() {
           {(step, getIdx) => {
             const thisTrail = getLocal.trails.find((x) => x.id === step.id);
             return (
-              <li id={thisTrail.id} onClick={[newPos, getIdx()]}>
+              <li
+                id={thisTrail.id}
+                classList={{ viewed: thisTrail.views > 0 }}
+                onClick={[newPos, getIdx()]
+              }>
                 {step.id}: {step.name} = {thisTrail.views}
               </li>
             );
