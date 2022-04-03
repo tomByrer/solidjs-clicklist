@@ -1,7 +1,7 @@
 /*
-ClickListSelector v0.5.1
+https://github.com/tomByrer/solidjs-clicklist v0.6.0
 @TomByrer 2022, LGPL-3.0
-SolidJS app that takes array of objects with `id` & highlights when clicked on or stepped.
+SolidJS app that takes array of objects with `id`, highlights when clicked on or stepped, & tracks 'views'/clicks.
 */
 import { render } from "solid-js/web";
 import { createSignal, For, mergeProps } from "solid-js";
@@ -21,16 +21,16 @@ function App() {
   const [getLocal, setLocal] = createStore({
     trails: [
       { id: "info", views: 0 },
-      { id: "step1", views: 3 },
-      { id: "step2", views: 2 },
+      { id: "step1", views: 0 },
+      { id: "step2", views: 0 },
       { id: "step3", views: 0 },
-      { id: "step4", views: 5 },
+      { id: "step4", views: 0 },
     ],
   });
 
   const [getCSSID, setCSSID] = createSignal('');
 
-  let curPos = 0; // _Local's 1st item in arr will be info
+  let curPos = -1; // 0 is the first index ;)
   const newPos = (pos = 1 + curPos) => {
     curPos = pos;
     const curTrail = getLocal.trails[curPos];
@@ -40,8 +40,10 @@ function App() {
 
   const Styles = () => {
     return (
-      <style>li#{getCSSID() + ` {color:black;background-color:yellow;}
-li.viewed {background-color:gray}`}</style>
+      <style>{`
+li.viewed {color:seagreen}
+li.viewed::marker {content:'✔ ';font-size:0.8em;color:seagreen}
+li#${getCSSID()} {color:linen;background-color:seagreen;}`}</style>
     );
   };
 
