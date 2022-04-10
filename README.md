@@ -12,11 +12,11 @@ No npm release yet; just demo code
 
 ### History
 
-#### 0.7.0
+#### 0.7.1
 
-r seperate createClickLift
+r seperate createClickLift, createSteps
 
-[playground](https://playground.solidjs.com/?hash=-1672104675&version=1.3.13)
+[playground](https://playground.solidjs.com/?hash=988774049&version=1.3.13)
 
 #### 0.6.0
 

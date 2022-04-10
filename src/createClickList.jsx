@@ -2,6 +2,7 @@ import { createSignal, createMemo, createRoot } from "solid-js";
 import { createStore } from "solid-js/store";
 
 function createClickList() {
+  // per-user/local data
   const [getLocal, setLocal] = createStore({
     trails: [
       { id: "info", views: 0 },
