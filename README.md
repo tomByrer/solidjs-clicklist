@@ -12,6 +12,12 @@ No npm release yet; just demo code
 
 ### History
 
+#### 0.7.0
+
+r seperate createClickLift
+
+[playground](https://playground.solidjs.com/?hash=-1672104675&version=1.3.13)
+
 #### 0.6.0
 
 c stepping now starts at 1st index (0)

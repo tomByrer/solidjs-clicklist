@@ -1,11 +1,12 @@
 /*
-https://github.com/tomByrer/solidjs-clicklist v0.6.0
+https://github.com/tomByrer/solidjs-clicklist v0.7.0
 @TomByrer 2022, LGPL-3.0
-SolidJS app that takes array of objects with `id`, highlights when clicked on or stepped, & tracks 'views'/clicks.
+SolidJS app that takes array of objects with `id` & highlights when clicked on or stepped.
 */
 import { render } from "solid-js/web";
 import { createSignal, For, mergeProps } from "solid-js";
 import { createStore } from "solid-js/store";
+import createClickList from "./createClickList.tsx";
 
 function App() {
   // 'remote' data
@@ -17,26 +18,8 @@ function App() {
     { id: "step4", name: "Eat!" },
   ]);
 
+  const { getCSSID, getLocal, newPos } = createClickList;
   // per-user/local data
-  const [getLocal, setLocal] = createStore({
-    trails: [
-      { id: "info", views: 0 },
-      { id: "step1", views: 0 },
-      { id: "step2", views: 0 },
-      { id: "step3", views: 0 },
-      { id: "step4", views: 0 },
-    ],
-  });
-
-  const [getCSSID, setCSSID] = createSignal('');
-
-  let curPos = -1; // 0 is the first index ;)
-  const newPos = (pos = 1 + curPos) => {
-    curPos = pos;
-    const curTrail = getLocal.trails[curPos];
-    setLocal("trails", curPos, "views", curTrail.views + 1);
-    setCSSID(curTrail.id);
-  };
 
   const Styles = () => {
     return (
@@ -54,13 +37,13 @@ li#${getCSSID()} {color:linen;background-color:seagreen;}`}</style>
 
   return (
     <article>
-      <p>click on list items</p>
       <Styles />
+      <p>click on list items</p>
       <button type="button" onClick={() => newPos()}>
         Next Step
       </button>
-      <button type="button" onClick={() => newPos(1)}>
-        Step=2
+      <button type="button" onClick={() => newPos(2)}>
+        Mix
       </button>
       <ul>
         <For each={getSteps()}>
@@ -70,8 +53,8 @@ li#${getCSSID()} {color:linen;background-color:seagreen;}`}</style>
               <li
                 id={thisTrail.id}
                 classList={{ viewed: thisTrail.views > 0 }}
-                onClick={[newPos, getIdx()]
-              }>
+                onClick={[newPos, getIdx()]}
+              >
                 {step.id}: {step.name} = {thisTrail.views}
               </li>
             );
