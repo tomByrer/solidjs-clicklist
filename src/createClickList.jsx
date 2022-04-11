@@ -2,6 +2,15 @@ import { createSignal, createMemo, createRoot } from "solid-js";
 import { createStore } from "solid-js/store";
 
 function createClickList() {
+  // 'remote' data
+  const [getSteps, setSteps] = createSignal([
+    { id: "info", name: "basic coooking instructions" },
+    { id: "step1", name: "Collect ingreadiants & tools" },
+    { id: "step2", name: "Mix" },
+    { id: "step3", name: "Cook" },
+    { id: "step4", name: "Eat!" },
+  ]);
+
   // per-user/local data
   const [getLocal, setLocal] = createStore({
     trails: [
@@ -25,7 +34,12 @@ function createClickList() {
     setCSSID(curTrail.id);
   };
 
-  return { getCSSID, getLocal, newPos };
+  const getStepByID = (lookupID = getCSSID()) => {
+    const found = getSteps().find((x) => x.id === lookupID);
+    return found;
+  };
+
+  return { getCSSID, getLocal, getSteps, getStepByID, newPos };
 }
 
 export default createRoot(createClickList);
