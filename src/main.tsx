@@ -6,8 +6,7 @@ SolidJS app that takes array of objects with `id` & highlights when clicked on o
 import { render } from "solid-js/web";
 import { createSignal, For, mergeProps } from "solid-js";
 import { createStore } from "solid-js/store";
-import createClickList from "./createClickList";
-  const { getCSSID, getLocal, getSteps, getStepByID, newPos } = createClickList;
+import { getCSSID, getLocal, getSteps, getStepByID, newPos } from "./createClickList";
 
 function App() {
 	const Current =()=> <p>Current: {getStepByID()?.name}</p>
