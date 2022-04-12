@@ -1,4 +1,4 @@
-import { createSignal, createMemo, createRoot } from "solid-js";
+import { createSignal } from "solid-js";
 import { createStore } from "solid-js/store";
 
 // 'remote' data

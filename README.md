@@ -12,6 +12,15 @@ No npm release yet; just demo code
 
 ### History
 
+#### 0.8.0
+
+r UI has seperate file
+f point at active item
+f change pointer over list
+r removed unused imports
+
+[playground](https://playground.solidjs.com/?hash=-500337155&version=1.3.13)
+
 #### 0.7.4
 
 r tree-shakeable
