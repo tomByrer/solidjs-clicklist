@@ -12,6 +12,13 @@ No npm release yet; just demo code
 
 ### History
 
+#### 0.7.4
+
+r tree-shakeable
+r Local store built from ('remote') Steps signal
+
+[playground](https://playground.solidjs.com/?hash=-1788841575&version=1.3.13)
+
 #### 0.7.1
 
 r seperate createClickLift, createSteps
