@@ -1,6 +1,6 @@
 {
   "name": "solidjs-clicklist",
-  "version": "0.7.4",
+  "version": "0.8.1",
   "description": "SolidJS demo: click to select from a list",
   "repository": {
     "type": "git",

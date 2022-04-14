@@ -12,6 +12,13 @@ No npm release yet; just demo code
 
 ### History
 
+#### 0.8.1
+
++ tabindex
++ new UI: buttons, unstyled
+
+[playground](https://playground.solidjs.com/?hash=1791682002&version=1.3.13)
+
 #### 0.8.0
 
 r UI has seperate file

@@ -18,11 +18,6 @@ li#${getCSSID()} {color:linen;background-color:seagreen;}
 li#${getCSSID()}::marker {content:'👉 ';font-size:0.8em;color:red}
 `}
       </style>
-      <p>
-        click on list items
-        <br />
-        <i>= # of views</i>
-      </p>
       <ul>
         <For each={getSteps()}>
           {(step, getIdx) => {
@@ -32,8 +27,10 @@ li#${getCSSID()}::marker {content:'👉 ';font-size:0.8em;color:red}
                 id={thisTrail.id}
                 classList={{ viewed: thisTrail.views > 0 }}
                 onClick={[newPos, getIdx()]}
+                tabindex="0"
+                type="button"
               >
-                {step.id}: {step.name} <i>= {thisTrail.views}</i>
+                <var>{thisTrail.id}:</var> {step.name} <i>= {thisTrail.views}</i>
               </li>
             );
           }}
