@@ -11,10 +11,11 @@ export function ClickListUlViews() {
     <section>
       <style>
         {`
-li {cursor:pointer}
-li.viewed {color:seagreen}
+li {cursor:pointer;padding:0.32em;border-radius:0.32em;background-color:#fcf5ef;}
+li.viewed {color:#1e5938;background-color:transparent}
 li.viewed::marker {content:'✔  ';font-size:0.8em;color:seagreen}
-li#${getCSSID()} {color:linen;background-color:seagreen;}
+li.active {color:#22201e:background-color:#2e8b57}
+li#${getCSSID()} {color:linen;background-color:#2e8b57;}
 li#${getCSSID()}::marker {content:'👉 ';font-size:0.8em;color:red}
 `}
       </style>

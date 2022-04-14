@@ -10,10 +10,11 @@ export function ClickListButton() {
   return (
     <section>
       <style>{`
-fieldset button {all:unset;display:block;cursor:pointer}
+fieldset button {all:unset;cursor:pointer;display:block;padding:0.32em;border-radius:0.32em;background-color:#fcf5ef;}
 fieldset button:focus-visible {outline:2px dashed darkorange}
-fieldset button.viewed {color:seagreen}
-fieldset button#${getCSSID()} {color:linen;background-color:seagreen;}
+li.active {color:#22201e:background-color:#2e8b57}
+fieldset button.viewed {color:#1e5938;background-color:transparent}
+fieldset button#${getCSSID()} {color:linen;background-color:#2e8b57;}
 `}
       </style>
       <fieldset>
