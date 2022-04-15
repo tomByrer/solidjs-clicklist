@@ -6,7 +6,7 @@ SolidJS app that takes array of objects with `id` & highlights when clicked on o
 import { render } from "solid-js/web";
 import {
   getStepByID,
-  newPos,
+  setNewPos,
   setLocal, //FIX rmeove in dproduction
 } from "./createClickList";
 import { ClickListUlViews } from "./UIClickList-ul"
@@ -23,10 +23,10 @@ function App() {
 h3 {margin:1em 0 0.618em 0}
 `}
       </style>
-      <button type="button" onClick={() => newPos()}>
+      <button type="button" onClick={() => setNewPos()}>
         Next Step
       </button>
-      <button type="button" onClick={() => newPos(2)}>
+      <button type="button" onClick={() => setNewPos(2)}>
         Mix
       </button>
       <h3>Buttons, unstyled</h3>

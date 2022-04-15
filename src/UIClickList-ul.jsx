@@ -3,7 +3,7 @@ import {
 	getCSSID,
 	getLocal,
 	getSteps,
-	newPos,
+	setNewPos,
 } from "./createClickList"
 
 export function ClickListUlViews() {
@@ -27,7 +27,7 @@ li#${getCSSID()}::marker {content:'👉 ';font-size:0.8em;color:red}
               <li
                 id={thisTrail.id}
                 classList={{ active:thisTrail.isActive, viewed:thisTrail.views > 0 }}
-                onClick={[newPos, getIdx()]}
+                onClick={[setNewPos, getIdx()]}
                 tabindex="0"
                 type="button"
               >

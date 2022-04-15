@@ -3,7 +3,7 @@ import {
   getCSSID,
   getLocal,
   getSteps,
-  newPos,
+  setNewPos,
 } from "./createClickList"
 
 export function ClickListButton() {
@@ -26,7 +26,7 @@ fieldset button#${getCSSID()} {color:linen;background-color:#2e8b57;}
               <button
                 classList={{ active:thisTrail.isActive, viewed:thisTrail.views > 0 }}
                 id={thisTrail.id}
-                onClick={[newPos, getIdx()]}
+                onClick={[setNewPos, getIdx()]}
                 type="button"
               >
                 <var>{thisTrail.id}:</var> {step.name} <i>= {thisTrail.views}</i>

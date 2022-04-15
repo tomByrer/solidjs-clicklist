@@ -24,9 +24,9 @@ const [getCSSID, setCSSID] = createSignal("");
 
 let curPos = -1; // 0 is the first index ;)
 /*
-newPos() = next step, newPos(value) = jump to value
+setNewPos() = next step, setNewPos(value) = jump to value
 */
-const newPos = (pos = 1 + curPos) => {
+const setNewPos = (pos = 1 + curPos) => {
   curPos = pos;
   const curTrail = getLocal.trails[curPos];
   setLocal("trails", curPos, "isActive", true);
@@ -45,6 +45,6 @@ export {
   getLocal,
   getStepByID,
   getSteps,
-  newPos,
+  setNewPos,
   setLocal,
 }
