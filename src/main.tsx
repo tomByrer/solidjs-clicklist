@@ -5,6 +5,7 @@ SolidJS app that takes array of objects with `id` & highlights when clicked on o
 */
 import { render } from "solid-js/web";
 import {
+  clearActiveAllButCur,
   getStepByID,
   setNewPos,
   setLocal, //FIX rmeove in dproduction
@@ -28,6 +29,9 @@ h3 {margin:1em 0 0.618em 0}
       </button>
       <button type="button" onClick={() => setNewPos(2)}>
         Mix
+      </button>
+      <button type="button" onClick={() => clearActiveAllButCur()}>
+        clearActiveAllButCur
       </button>
       <h3>Buttons, unstyled</h3>
       <var>= # of views</var>

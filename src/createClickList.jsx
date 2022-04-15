@@ -1,5 +1,5 @@
-import { createSignal } from "solid-js";
-import { createStore } from "solid-js/store";
+import { createSignal } from "solid-js"
+import { createStore } from "solid-js/store"
 
 // 'remote' data
 const [getSteps, setSteps] = createSignal([
@@ -8,7 +8,7 @@ const [getSteps, setSteps] = createSignal([
   { id: "step2", name: "Mix" },
   { id: "step3", name: "Cook" },
   { id: "step4", name: "Eat!" },
-]);
+])
 
 // per-user/local data
 const [getLocal, setLocal] = createStore({
@@ -17,30 +17,41 @@ const [getLocal, setLocal] = createStore({
       id: step.id,
       isActive: false,
       views: 0,
-    };
+    }
   }),
-});
-const [getCSSID, setCSSID] = createSignal("");
+})
+const [getCSSID, setCSSID] = createSignal("")
 
-let curPos = -1; // 0 is the first index ;)
+let curPos = -1 // 0 is the first index ;)
 /*
 setNewPos() = next step, setNewPos(value) = jump to value
 */
-const setNewPos = (pos = 1 + curPos) => {
-  curPos = pos;
-  const curTrail = getLocal.trails[curPos];
-  setLocal("trails", curPos, "isActive", true);
-  setLocal("trails", curPos, "views", curTrail.views + 1);
-  setCSSID(curTrail.id);
-};
+const setNewPos =(pos = 1 + curPos)=>{
+  curPos = pos
+  const curTrail = getLocal.trails[curPos]
+  setLocal("trails", curPos, "isActive", true)
+  setLocal("trails", curPos, "views", curTrail.views + 1)
+  setCSSID(curTrail.id)
+}
 
-const getStepByID = (lookupID = getCSSID()) => {
-  const found = getSteps().find((x) => x.id === lookupID);
-  return found;
-};
+const clearActiveAllButCur =()=>{
+  console.log('clearActiveAllButCur:', getLocal.trails)
+  getLocal.trails.map( (step, i)=>{
+    if (i !== curPos){
+      console.log('clearActiveAllButCur', i)
+      setLocal("trails", i, "isActive", false)
+    }
+  })
+}
+
+const getStepByID =(lookupID = getCSSID())=>{
+  const found = getSteps().find((x) => x.id === lookupID)
+  return found
+}
 
 // let's export minium, try not to allow direct writes
 export {
+  clearActiveAllButCur,
   getCSSID,
   getLocal,
   getStepByID,
