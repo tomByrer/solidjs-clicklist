@@ -11,10 +11,10 @@ export function ClickListUlViews() {
     <section>
       <style>
         {`
-li {cursor:pointer;padding:0.32em;border-radius:0.32em;background-color:#fcf5ef;}
+li {cursor:pointer;padding:0.32em;border-radius:0.32em;background-color:#fdfbf9;}
 li.viewed {color:#1e5938;background-color:transparent}
 li.viewed::marker {content:'✔  ';font-size:0.8em;color:seagreen}
-li.active {color:#22201e:background-color:#2e8b57}
+li.active {color:#22201e;background-color:#e3f0e9}
 li#${getCSSID()} {color:linen;background-color:#2e8b57;}
 li#${getCSSID()}::marker {content:'👉 ';font-size:0.8em;color:red}
 `}
@@ -26,7 +26,7 @@ li#${getCSSID()}::marker {content:'👉 ';font-size:0.8em;color:red}
             return (
               <li
                 id={thisTrail.id}
-                classList={{ viewed: thisTrail.views > 0 }}
+                classList={{ active:thisTrail.isActive, viewed:thisTrail.views > 0 }}
                 onClick={[newPos, getIdx()]}
                 tabindex="0"
                 type="button"

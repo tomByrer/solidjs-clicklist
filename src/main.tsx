@@ -7,11 +7,14 @@ import { render } from "solid-js/web";
 import {
   getStepByID,
   newPos,
+  setLocal, //FIX rmeove in dproduction
 } from "./createClickList";
 import { ClickListUlViews } from "./UIClickList-ul"
 import { ClickListButton } from "./UIClickList-button"
 
 function App() {
+  setLocal("trails", 1, "isActive", true); //DEMO only //FIX removee in prod
+
   const Current = () => <p>Current: {getStepByID()?.name}</p>;
 
   return (

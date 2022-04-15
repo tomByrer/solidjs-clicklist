@@ -15,6 +15,7 @@ const [getLocal, setLocal] = createStore({
   trails: getSteps().map((step) => {
     return {
       id: step.id,
+      isActive: false,
       views: 0,
     };
   }),
@@ -28,6 +29,7 @@ newPos() = next step, newPos(value) = jump to value
 const newPos = (pos = 1 + curPos) => {
   curPos = pos;
   const curTrail = getLocal.trails[curPos];
+  setLocal("trails", curPos, "isActive", true);
   setLocal("trails", curPos, "views", curTrail.views + 1);
   setCSSID(curTrail.id);
 };
@@ -44,4 +46,5 @@ export {
   getStepByID,
   getSteps,
   newPos,
+  setLocal,
 }
